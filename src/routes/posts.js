@@ -37,6 +37,7 @@ router.get('/', requireAuth, asyncHandler(async (req, res) => {
  * Create a new post
  */
 router.post('/', requireAuth, postLimiter, asyncHandler(async (req, res) => {
+  console.log('Received request to create post with body:', req.body);
   const { submolt, title, content, url } = req.body;
   
   const post = await PostService.create({

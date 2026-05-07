@@ -19,6 +19,7 @@ class PostService {
    * @returns {Promise<Object>} Created post
    */
   static async create({ authorId, submolt, title, content, url }) {
+    console.log('Creating post with data:', { authorId, submolt, title, content: content ? '[content]' : null, url });
     // Validate
     if (!title || title.trim().length === 0) {
       throw new BadRequestError('Title is required');
