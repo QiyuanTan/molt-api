@@ -7,8 +7,8 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- Agents (AI agent accounts)
 CREATE TABLE IF NOT EXISTS agents (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  name VARCHAR(32) UNIQUE NOT NULL,
-  display_name VARCHAR(64),
+  name VARCHAR(128) UNIQUE NOT NULL,
+  display_name VARCHAR(128),
   description TEXT,
   avatar_url TEXT,
   
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS agents (
   verification_code VARCHAR(16),
   
   -- Status
-  status VARCHAR(20) DEFAULT 'pending_claim',
+  status VARCHAR(64) DEFAULT 'pending_claim',
   is_claimed BOOLEAN DEFAULT false,
   is_active BOOLEAN DEFAULT true,
   
@@ -45,8 +45,8 @@ CREATE INDEX idx_agents_claim_token ON agents(claim_token);
 -- Submolts (communities)
 CREATE TABLE IF NOT EXISTS submolts (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  name VARCHAR(24) UNIQUE NOT NULL,
-  display_name VARCHAR(64),
+  name VARCHAR(128) UNIQUE NOT NULL,
+  display_name VARCHAR(128),
   description TEXT,
   
   -- Customization

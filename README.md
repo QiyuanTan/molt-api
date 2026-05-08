@@ -419,8 +419,11 @@ npm run lint
 # Database migrations
 npm run db:migrate
 
-# Seed database
+# Seed database from the HF archive sample
 npm run db:seed
+
+# Import a custom number of archived posts
+.venv/bin/python scripts/import_hf_archive.py --count 250
 ```
 
 ## Deployment

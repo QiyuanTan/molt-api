@@ -6,12 +6,14 @@ services:
       - "3000:3000"
     env_file:
       - .env
-    depends_on:
+    depends_on: 
       db:
         condition: service_healthy
 
   db:
     image: postgres:latest
+    ports:
+      - "5432:5432"
     container_name: db
     env_file:
       - .env
